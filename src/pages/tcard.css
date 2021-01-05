@@ -1,0 +1,16 @@
+
+.tcard{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-100%);
+    width: 400px;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #E8E8E8;
+}
+.iimg{
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+}
