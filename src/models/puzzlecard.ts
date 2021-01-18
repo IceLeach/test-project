@@ -28,12 +28,14 @@ export default {
         *queryInitCards(_: any,sagaEffects: { call: any; put: any; }){
             try{
                 const {call,put}=sagaEffects;
-                const endPointURI='/random_joke';
+                // const endPointURI='/random_joke';
+                const endPointURI='http://jsonplaceholder.typicode.com/posts/1';
                 const puzzle=yield call(request,endPointURI);
-                yield put({type:'addNewCard',payload:puzzle});
-                yield call(delay,3000);
-                const puzzle2=yield call(request,endPointURI);
-                yield put({type:'addNewCard',payload:puzzle2});
+                console.log(puzzle);
+                // yield put({type:'addNewCard',payload:puzzle});
+                // yield call(delay,3000);
+                // const puzzle2=yield call(request,endPointURI);
+                // yield put({type:'addNewCard',payload:puzzle2});
             }catch(e){
                 message.error('数据获取失败');
             }
@@ -41,7 +43,7 @@ export default {
     },
     reducers: {
         addNewCard(state:any,{payload}){
-            console.log(payload);
+            // console.log(payload);
             const nextCounter=state.counter+1;
             const newCardWithId={...payload,id:nextCounter};
             const nextData=state.data.concat(newCardWithId);

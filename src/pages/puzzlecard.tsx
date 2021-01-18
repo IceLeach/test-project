@@ -4,18 +4,20 @@ import { connect } from 'dva';
 
 const namespace='puzzlecard';
 function mapStateToProps(state:any) {
-    console.log(state);
+    // console.log(state);
     const cardList:any=state[namespace].data;
     return {cardList};
 }
 function mapDispatchToProps(dispatch:any) {
-    console.log(dispatch);
+    // console.log(dispatch);
     // function onClickAdd(newCard:any) {
     //     const action={type:`${namespace}/addNewCard`,payload:newCard};
     //     dispatch(action);
     // }
-    function onDidMount() {
-        dispatch({type:`${namespace}/queryInitCards`});
+    async function onDidMount() {
+        // dispatch({type:`${namespace}/queryInitCards`});
+        const res=await dispatch({type:`${namespace}/queryInitCards`});
+        console.log(res);
     }
     // return {onClickAdd};
     return {onDidMount};
